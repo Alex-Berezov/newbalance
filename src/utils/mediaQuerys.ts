@@ -26,7 +26,7 @@ export const BREAKPOINTS: StringArrayType = {
 
 const breakpointsKeys = Object.keys(BREAKPOINTS)
 
-export const scRespondTo = breakpointsKeys.reduce((accumulator, label) => {
+export const scRespondTo = breakpointsKeys.reduce((accumulator: any, label: any) => {
   accumulator[label] = css`
     @media (min-width: ${BREAKPOINTS[label]}px)
   `
