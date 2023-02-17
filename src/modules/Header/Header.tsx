@@ -1,13 +1,15 @@
 import React, { FC } from 'react'
-import Navbar from '../../components/Navbar'
 import Logo from '../../UI/Logo/Logo'
 import * as Styled from './styles'
+import SearchForm from '../../components/SearchForm/SearchForm'
+import HeaderCartButton from '../../UI/HeaderCartButton/HeaderCartButton'
 
 const Header: FC = () => {
   return (
     <Styled.Root>
       <Logo />
-      <Navbar />
+      <SearchForm />
+      <HeaderCartButton />
     </Styled.Root>
   )
 }
