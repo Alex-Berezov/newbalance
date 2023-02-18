@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import * as Styled from './styles'
+import DropDown from '../../UI/DropDown/DropDown'
 
 interface NavbarProps {
   navListItems: string[]
@@ -14,15 +15,20 @@ const Navbar: FC<NavbarProps> = ({ navListItems }) => {
 
   return (
     <Styled.Root>
-      {navListItems.map((item, i) => (
-        <Styled.NavListItem
-          key={item}
-          className={activeNavItem === i ? 'active' : ''}
-          onClick={() => selectNavItem(i)}
-        >
-          {item}
-        </Styled.NavListItem>
-      ))}
+      <Styled.NavList>
+        {navListItems.map((item, i) => (
+          <Styled.NavListItem
+            key={item}
+            className={activeNavItem === i ? 'active' : ''}
+            onClick={() => selectNavItem(i)}
+          >
+            {item}
+          </Styled.NavListItem>
+        ))}
+      </Styled.NavList>
+      <Styled.Sort>
+        <DropDown />
+      </Styled.Sort>
     </Styled.Root>
   )
 }
