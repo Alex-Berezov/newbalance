@@ -13,6 +13,14 @@ const Navbar: FC<NavbarProps> = ({ navListItems }) => {
     setActiveNavItem(i)
   }
 
+  const sortList = [
+    'Most Popular',
+    'Price (High-Low)',
+    'Price(Low - High)',
+    'Name(A-Z)',
+    'Name(Z-A)',
+  ]
+
   return (
     <Styled.Root>
       <Styled.NavList>
@@ -27,7 +35,7 @@ const Navbar: FC<NavbarProps> = ({ navListItems }) => {
         ))}
       </Styled.NavList>
       <Styled.Sort>
-        <DropDown />
+        <DropDown sortList={sortList} />
       </Styled.Sort>
     </Styled.Root>
   )

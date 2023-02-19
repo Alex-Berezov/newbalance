@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Logo from '../../UI/Logo/Logo'
 import * as Styled from './styles'
 import SearchForm from '../../components/SearchForm/SearchForm'
-import HeaderCartButton from '../../UI/HeaderCartButton/HeaderCartButton'
+import HeaderCartButton from '../HeaderCartButton/HeaderCartButton'
 
 const Header: FC = () => {
   return (

@@ -1,33 +1,54 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 
 import caret from '../../assets/images/caret.svg'
 
-const DropDown = () => {
-  const sortList = [
-    'Most Popular',
-    'Price (High-Low)',
-    'Price(Low - High)',
-    'Name(A-Z)',
-    'Name(Z-A)',
-  ] as const
+interface DropDownProps {
+  sortList: string[]
+}
+
+const DropDown: FC<DropDownProps> = ({ sortList }) => {
+  const [activeSortPopup, setActiveSortPopup] = useState(false)
+  const [selectedSortItem, setSelectedSortItem] = useState(0)
+
+  const chengeSortItem = (i: number) => {
+    setSelectedSortItem(i)
+    setActiveSortPopup(false)
+  }
+
+  const openSortPopup = () => {
+    setActiveSortPopup(!activeSortPopup)
+  }
 
   return (
     <Styled.Root>
       <Styled.SortLabel>
-        <Styled.SortCaret src={caret} alt='Caret' />
+        <Styled.SortCaret
+          src={caret}
+          alt='Caret'
+          className={activeSortPopup ? 'active' : ''}
+        />
         <Styled.LabelText>Sort by:</Styled.LabelText>
-        <Styled.DefaultSelectedLabel>Most Popular</Styled.DefaultSelectedLabel>
+        <Styled.DefaultSelectedLabel onClick={openSortPopup}>
+          {sortList[selectedSortItem]}
+        </Styled.DefaultSelectedLabel>
       </Styled.SortLabel>
-      <Styled.SortPopup>
-        <Styled.SortPopupList>
-          {sortList.map((item) => {
-            ;<Styled.SortPopupListItem key={item}>
-              {item}
-            </Styled.SortPopupListItem>
-          })}
-        </Styled.SortPopupList>
-      </Styled.SortPopup>
+
+      {activeSortPopup && (
+        <Styled.SortPopup>
+          <Styled.SortPopupList>
+            {sortList.map((item, i) => (
+              <Styled.SortPopupListItem
+                key={item}
+                className={selectedSortItem === i ? 'active' : ''}
+                onClick={() => chengeSortItem(i)}
+              >
+                {item}
+              </Styled.SortPopupListItem>
+            ))}
+          </Styled.SortPopupList>
+        </Styled.SortPopup>
+      )}
     </Styled.Root>
   )
 }
