@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { scRespondTo } from './../../utils/mediaQuerys'
 
 export const Root = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 15px 0;
-  margin-top: 50px;
 `
 
 export const NavList = styled.div`
@@ -23,4 +24,8 @@ export const NavListItem = styled.a`
   }
 `
 
-export const Sort = styled.div``
+export const Sort = styled.div`
+  ${scRespondTo.xs} {
+    margin: 20px 0 0 -5px;
+  }
+`

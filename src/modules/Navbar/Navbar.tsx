@@ -2,17 +2,15 @@ import React, { FC, useState } from 'react'
 import * as Styled from './styles'
 import DropDown from '../../UI/DropDown/DropDown'
 
-interface NavbarProps {
-  navListItems: string[]
-}
-
-const Navbar: FC<NavbarProps> = ({ navListItems }) => {
+const Navbar: FC = () => {
   const [activeNavItem, setActiveNavItem] = useState(0)
 
   const selectNavItem = (i: number) => {
     setActiveNavItem(i)
   }
 
+  const navListItems = ['All', 'Men', 'Women', 'Kids', 'Sale']
+  const isSingleProductPage = true
   const sortList = [
     'Most Popular',
     'Price (High-Low)',
@@ -34,9 +32,11 @@ const Navbar: FC<NavbarProps> = ({ navListItems }) => {
           </Styled.NavListItem>
         ))}
       </Styled.NavList>
-      <Styled.Sort>
-        <DropDown sortList={sortList} />
-      </Styled.Sort>
+      {isSingleProductPage ? null : (
+        <Styled.Sort>
+          <DropDown sortList={sortList} />
+        </Styled.Sort>
+      )}
     </Styled.Root>
   )
 }

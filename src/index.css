@@ -15,3 +15,20 @@ code {
 .app {
   padding: 0 80px;
 }
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .app {
+    padding: 0 15px;
+  }
+}

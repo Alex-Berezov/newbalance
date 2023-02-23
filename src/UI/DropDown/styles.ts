@@ -34,9 +34,11 @@ export const SortPopup = styled.div``
 export const SortPopupList = styled.ul`
   display: flex;
   flex-direction: column;
+  background: #fff;
+  padding: 5px 10px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 0;
 `
 
 export const SortPopupListItem = styled.li`
