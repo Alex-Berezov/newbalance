@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import * as Styled from './styles'
 import ImagesViewer from './../ImagesViewer/ImagesViewer'
+import ProductInfo from './../ProductInfo/ProductInfo'
 
 const ProductContent: FC = () => {
   return (
@@ -8,7 +9,9 @@ const ProductContent: FC = () => {
       <Styled.Media>
         <ImagesViewer />
       </Styled.Media>
-      <Styled.Content>Content part</Styled.Content>
+      <Styled.Content>
+        <ProductInfo />
+      </Styled.Content>
     </Styled.Root>
   )
 }
